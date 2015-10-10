@@ -14,6 +14,7 @@ public class Fire : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
     {
+        Cursor.visible = false; 
         range = 1000f;
         ammo = 1000; 
         line = GetComponent<LineRenderer>();
@@ -37,14 +38,6 @@ public class Fire : MonoBehaviour {
             
         }
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            FireWeapon();
-        }
-        else
-        {
-            line.enabled = false; 
-        }
 	}
 
     void OnGUI()

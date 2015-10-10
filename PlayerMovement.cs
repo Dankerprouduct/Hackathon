@@ -51,11 +51,7 @@ public class PlayerMovement : MonoBehaviour {
             Movement();
             Cam(); 
         }
-        else
-        {
-            Movement();
-            Cam(); 
-        }
+
 	}
     void Movement()
     {

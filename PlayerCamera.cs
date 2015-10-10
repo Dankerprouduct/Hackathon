@@ -24,10 +24,12 @@ public class PlayerCamera : MonoBehaviour
 
 
     NetworkView nview;
-    bool showSens; 
+    bool showSens;
+    Camera cam;
 	// Use this for initialization
 	void Start () 
     {
+        cam = GetComponent<Camera>();
         nview = GetComponent<NetworkView>();
         originalRotation = transform.localRotation; 
 	    
@@ -38,13 +40,14 @@ public class PlayerCamera : MonoBehaviour
     {
         if (nview.isMine)
         {
-            Cam(); 
+            Cam();
+            cam.enabled = true;
         }
         else
         {
-            Cam(); 
+            cam.enabled = false; 
         }
-	    
+       
 	}
 
     void Cam()
