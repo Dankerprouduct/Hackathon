@@ -35,6 +35,10 @@ public class Fire : MonoBehaviour {
             {
                 FireWeapon();
             }
+            else
+            {
+                line.enabled = false; 
+            }
             
         }
 
@@ -54,6 +58,7 @@ public class Fire : MonoBehaviour {
     }
     void FireWeapon()
     {
+        line.enabled = true; 
         Transform firePoint = transform.FindChild("FP").transform; 
         Ray ray = new Ray(firePoint.position, firePoint.forward);
 
@@ -65,8 +70,9 @@ public class Fire : MonoBehaviour {
             if (hit.collider.tag == "Player")
             {
                 nView = hit.collider.GetComponent<NetworkView>();
-                nView.RPC("RPCTakeDamage", nView.owner, 10); 
+                nView.RPC("RPCTakeDamage", nView.owner, 5f); 
             }
+            ammo--; 
         }
         else
         {
@@ -74,4 +80,9 @@ public class Fire : MonoBehaviour {
         }
     }
     
+    [RPC]
+    void RPCTakeDamage(float damage)
+    {
+
+    }
 }

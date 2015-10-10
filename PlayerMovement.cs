@@ -16,7 +16,10 @@ public class PlayerMovement : MonoBehaviour {
     MeshRenderer child;
     Component[] children;
     List<MeshRenderer> childrenMeshRenderer;
-    BoxCollider boxCollider; 
+    BoxCollider boxCollider;
+
+    public GameObject explosion; 
+
     #region Camera Controls
 
     public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
@@ -34,19 +37,19 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Start () 
     {
-        
+        SetUp(); 
         alive = true; 
         health = 100f; 
         rigidBody = GetComponent<Rigidbody>();
         nView = GetComponent<NetworkView>();
-        speed = 10f;
+        speed = 20f;
 
         if (rigidBody)
         {
             rigidBody.freezeRotation = true;
             originalRotation = transform.localRotation;
         }
-
+        
 
 	}
 	
@@ -88,6 +91,14 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             rigidBody.AddForce(Vector3.up * speed * Time.deltaTime);
+        }
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = 35;
+        }
+        else
+        {
+            speed = 20; 
         }
     }
     void OnGUI()
@@ -146,10 +157,37 @@ public class PlayerMovement : MonoBehaviour {
             {
                 childrenMeshRenderer[i].enabled = false; 
             }
+
+            Network.Instantiate(explosion, new Vector3(transform.position.x, transform.position.y, transform.position.z), Quaternion.identity, 0); 
             boxCollider.enabled = false;
+            nView.RPC("Died", RPCMode.All, false);
+            StartCoroutine(RespawnTime()); 
         }
     }
+    IEnumerator RespawnTime()
+    {
+        yield return new WaitForSeconds(3);
+        health = 100;
+        alive = true;
+        CheckStats(); 
 
+        GameObject[] rSpawn = GameObject.FindGameObjectsWithTag("Spawn"); 
+        int index = Random.Range(0, rSpawn.Length);
+        transform.position = new Vector3(rSpawn[index].transform.position.x, rSpawn[index].transform.position.y, rSpawn[index].transform.position.z);
+
+        nView.RPC("Died", RPCMode.All, true);
+    }
+    [RPC]
+    void Died(bool show, NetworkMessageInfo info)
+    {
+        MeshRenderer[] otherMeshes;
+        otherMeshes = info.networkView.GetComponentsInChildren<MeshRenderer>();
+
+        foreach (MeshRenderer mRender in otherMeshes)
+        {
+            mRender.enabled = show; 
+        }
+    }
     #region Camera Movement
     void Cam()
     {
