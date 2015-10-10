@@ -153,7 +153,7 @@ public class NetworkManager : MonoBehaviour {
     
     IEnumerator WaitToJoin()
     {
-        yield return new WaitForSeconds(3 + Mathf.RoundToInt(Random.Range(1, 6)));
+        yield return new WaitForSeconds(3);
         SpawnPlayer();
     }
 
@@ -166,9 +166,17 @@ public class NetworkManager : MonoBehaviour {
     
     void SpawnPlayer()
     {
-        Debug.Log(Application.loadedLevel.ToString()); 
-        GameObject spawn = GameObject.FindGameObjectWithTag("Spawn");
-        Network.Instantiate(playerPrefab, new Vector3(spawn.transform.position.x, spawn.transform.position.y, spawn.transform.position.z), Quaternion.identity, 0);
-        //Network.Destroy(spawn);
+        try
+        {
+            Debug.Log(Application.loadedLevel.ToString());
+            GameObject[] spawn = GameObject.FindGameObjectsWithTag("Spawn");
+            int spawnIndex = Random.Range(0, spawn.Length);
+            Network.Instantiate(playerPrefab, new Vector3(spawn[spawnIndex].transform.position.x, spawn[spawnIndex].transform.position.y, spawn[spawnIndex].transform.position.z), Quaternion.identity, 0);
+        }
+        catch
+        {
+            SpawnPlayer(); 
+        }
+            //Network.Destroy(spawn);
     }
 }

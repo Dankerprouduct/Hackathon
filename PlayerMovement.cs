@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic; 
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -9,8 +10,13 @@ public class PlayerMovement : MonoBehaviour {
     float speed;
     bool showSense = false;
 
-    float health; 
-
+    float health;
+    public GUISkin skin;
+    bool alive;
+    MeshRenderer child;
+    Component[] children;
+    List<MeshRenderer> childrenMeshRenderer;
+    BoxCollider boxCollider; 
     #region Camera Controls
 
     public enum RotationAxes { MouseXAndY = 0, MouseX = 1, MouseY = 2 }
@@ -28,7 +34,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Start () 
     {
-
+        
+        alive = true; 
         health = 100f; 
         rigidBody = GetComponent<Rigidbody>();
         nView = GetComponent<NetworkView>();
@@ -83,16 +90,64 @@ public class PlayerMovement : MonoBehaviour {
             rigidBody.AddForce(Vector3.up * speed * Time.deltaTime);
         }
     }
-
+    void OnGUI()
+    {
+        GUI.skin = skin; 
+        if (nView.isMine)
+        {
+            GUI.Box(new Rect(Screen.width - 225, Screen.height - 60, health * 2, 50), "Health", skin.GetStyle("HealthSkin"));
+            
+        }
+    }
 
     [RPC]
     void RPCTakeDamage(float ammount)
     {
-        health = health - ammount; 
+        health = health - ammount;
+        CheckStats(); 
     }
     void ClientTakeDamage(float ammount)
     {
-        health = health - ammount; 
+        health = health - ammount;
+        CheckStats();
+    }
+
+    void SetUp()
+    {
+
+        boxCollider = GetComponent<BoxCollider>(); 
+        children = GetComponentsInChildren<MeshRenderer>();
+        childrenMeshRenderer = new List<MeshRenderer>();
+        foreach (MeshRenderer mRendeder in children)
+        {
+            childrenMeshRenderer.Add(mRendeder); 
+        }
+
+    }
+    void CheckStats()
+    {
+        if (health > 0)
+        {
+            alive = true;
+            boxCollider.enabled = true;
+            for (int i = 0; i < childrenMeshRenderer.Count; i++)
+            {
+                childrenMeshRenderer[i].enabled = true;
+            }
+        }
+        if (health <= 0)
+        {
+            alive = false; 
+        }
+
+        if (!alive)
+        {
+            for (int i = 0; i < childrenMeshRenderer.Count; i++)
+            {
+                childrenMeshRenderer[i].enabled = false; 
+            }
+            boxCollider.enabled = false;
+        }
     }
 
     #region Camera Movement
