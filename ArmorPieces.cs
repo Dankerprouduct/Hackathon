@@ -21,7 +21,12 @@ public class ArmorPieces : MonoBehaviour {
         RightBicep,
         LeftBicep,
         RightFoot,
-        LeftFoot
+        LeftFoot,
+        RightCalf,
+        LeftCalf,
+        RightThigh,
+        LeftThigh,
+        SkirtPiece
     }
 
     public ArmorPieces(string name, int id, ArmorType type, string itemDescription, float itemSpeed, float itemHealth)
