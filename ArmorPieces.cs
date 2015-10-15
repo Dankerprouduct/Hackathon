@@ -7,6 +7,7 @@ public class ArmorPieces : MonoBehaviour {
     public string pieceName;
     public int itemID;
     public ArmorType armor;
+    public string itemDesc; 
     public float speed;
     public float health; 
 
@@ -22,11 +23,12 @@ public class ArmorPieces : MonoBehaviour {
         LeftFoot
     }
 
-    public ArmorPieces(string name, int id, ArmorType type, float itemSpeed, float itemHealth)
+    public ArmorPieces(string name, int id, ArmorType type, string itemDescription, float itemSpeed, float itemHealth)
     {
         pieceName = name;
         itemID = id;
         armor = type;
+        itemDesc = itemDescription; 
         speed = itemSpeed;
         health = itemHealth;
     }
