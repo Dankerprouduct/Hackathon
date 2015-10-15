@@ -9,6 +9,7 @@ public class ItemDatabase : MonoBehaviour {
     void Awake()
     {
         armor.Add(new ArmorPieces("Head1", 0, ArmorPieces.ArmorType.Helmet, "This head will sadly not give head", 0, 0)); 
-        
+                        
     }
+
 }

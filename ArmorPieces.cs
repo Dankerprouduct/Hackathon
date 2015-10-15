@@ -9,7 +9,8 @@ public class ArmorPieces : MonoBehaviour {
     public ArmorType armor;
     public string itemDesc; 
     public float speed;
-    public float health; 
+    public float health;
+    public GameObject armorModel; 
 
     public enum ArmorType
     {
@@ -31,6 +32,7 @@ public class ArmorPieces : MonoBehaviour {
         itemDesc = itemDescription; 
         speed = itemSpeed;
         health = itemHealth;
+        armorModel = Resources.Load<GameObject>("Modles/" + pieceName); 
     }
 
     public ArmorPieces()
