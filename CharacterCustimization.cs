@@ -11,18 +11,8 @@ public class CharacterCustimization : MonoBehaviour {
 	void Start () 
     {
         database = new ItemDatabase();
-        armorPiece = new ArmorPieces(); 
+        armorPiece = new ArmorPieces();
 
-	}
-	
-	// Update is called once per frame
-	void Update () 
-    {
-	
-	}
-
-    void OnGUI()
-    {
         Helmet();
         Torso();
         RightBicep();
@@ -36,9 +26,9 @@ public class CharacterCustimization : MonoBehaviour {
         LeftCalf();
         RightFoot();
         LeftFoot(); 
+	}
 
-    }
-
+    #region 
     List<string> helmet = new List<string>();
     void Helmet()
     {
@@ -47,11 +37,11 @@ public class CharacterCustimization : MonoBehaviour {
         {
             if (database.armor[i].armor == ArmorPieces.ArmorType.Helmet)
             {
-                helmet.Add(database.armor[i].pieceName); 
+                helmet.Add(database.armor[i].pieceName);
             }
         }
     }
-    
+
     List<string> torso = new List<string>();
     void Torso()
     {
@@ -59,7 +49,7 @@ public class CharacterCustimization : MonoBehaviour {
         {
             if (database.armor[i].armor == ArmorPieces.ArmorType.Torso)
             {
-                torso.Add(database.armor[i].pieceName); 
+                torso.Add(database.armor[i].pieceName);
             }
         }
     }
@@ -71,12 +61,12 @@ public class CharacterCustimization : MonoBehaviour {
         {
             if (database.armor[i].armor == ArmorPieces.ArmorType.RightBicep)
             {
-                rightBicep.Add(database.armor[i].pieceName); 
+                rightBicep.Add(database.armor[i].pieceName);
             }
         }
     }
 
-    List<string> leftBicep = new List<string>(); 
+    List<string> leftBicep = new List<string>();
     void LeftBicep()
     {
         for (int i = 0; i < database.armor.Count; i++)
@@ -95,7 +85,7 @@ public class CharacterCustimization : MonoBehaviour {
         {
             if (database.armor[i].armor == ArmorPieces.ArmorType.RightForearm)
             {
-                rightForearm.Add(database.armor[i].pieceName); 
+                rightForearm.Add(database.armor[i].pieceName);
             }
         }
     }
@@ -107,7 +97,7 @@ public class CharacterCustimization : MonoBehaviour {
         {
             if (database.armor[i].armor == ArmorPieces.ArmorType.LeftForearm)
             {
-                leftForearm.Add(database.armor[i].pieceName); 
+                leftForearm.Add(database.armor[i].pieceName);
             }
         }
     }
@@ -119,43 +109,43 @@ public class CharacterCustimization : MonoBehaviour {
         {
             if (database.armor[i].armor == ArmorPieces.ArmorType.SkirtPiece)
             {
-                skirt.Add(database.armor[i].pieceName); 
+                skirt.Add(database.armor[i].pieceName);
             }
         }
     }
 
-    List<string> rightThigh = new List<string>(); 
+    List<string> rightThigh = new List<string>();
     void RightThigh()
     {
         for (int i = 0; i < database.armor.Count; i++)
         {
             if (database.armor[i].armor == ArmorPieces.ArmorType.RightThigh)
             {
-                rightThigh.Add(database.armor[i].pieceName); 
+                rightThigh.Add(database.armor[i].pieceName);
             }
         }
     }
 
-    List<string> leftThigh = new List<string>(); 
+    List<string> leftThigh = new List<string>();
     void LeftThigh()
     {
         for (int i = 0; i < database.armor.Count; i++)
         {
             if (database.armor[i].armor == ArmorPieces.ArmorType.LeftThigh)
             {
-                leftThigh.Add(database.armor[i].pieceName); 
+                leftThigh.Add(database.armor[i].pieceName);
             }
         }
     }
 
-    List<string> rightCalf = new List<string>(); 
+    List<string> rightCalf = new List<string>();
     void RightCalf()
     {
         for (int i = 0; i < database.armor.Count; i++)
         {
             if (database.armor[i].armor == ArmorPieces.ArmorType.RightCalf)
             {
-                rightCalf.Add(database.armor[i].pieceName); 
+                rightCalf.Add(database.armor[i].pieceName);
             }
         }
     }
@@ -172,28 +162,40 @@ public class CharacterCustimization : MonoBehaviour {
         }
     }
 
-    List<string> rightFoot = new List<string>(); 
+    List<string> rightFoot = new List<string>();
     void RightFoot()
     {
         for (int i = 0; i < database.armor.Count; i++)
         {
             if (database.armor[i].armor == ArmorPieces.ArmorType.RightFoot)
             {
-                rightFoot.Add(database.armor[i].pieceName); 
+                rightFoot.Add(database.armor[i].pieceName);
             }
         }
     }
 
-    List<string> leftFoot = new List<string>(); 
+    List<string> leftFoot = new List<string>();
     void LeftFoot()
     {
         for (int i = 0; i < database.armor.Count; i++)
         {
             if (database.armor[i].armor == ArmorPieces.ArmorType.LeftFoot)
             {
-                leftFoot.Add(database.armor[i].pieceName); 
+                leftFoot.Add(database.armor[i].pieceName);
             }
         }
     }
+    #endregion
+    void Update () 
+    {
+	    
+	}
+
+    void OnGUI()
+    {
+        
+    }
+
+    
 
 }
