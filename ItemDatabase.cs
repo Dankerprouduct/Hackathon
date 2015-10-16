@@ -22,25 +22,25 @@ public class ItemDatabase : MonoBehaviour {
     {
         
         // basic set one
-        armor.Add(new ArmorPieces("Head", 101, ArmorPieces.ArmorType.Helmet, "Basic Helmet", 0, 0));
-        armor.Add(new ArmorPieces("Torso", 102, ArmorPieces.ArmorType.Torso, "Basic Torso", 0f, 0f));
-        armor.Add(new ArmorPieces("Right Bicep", 103, ArmorPieces.ArmorType.RightBicep, "Basic Bicep", 0, 0));
-        armor.Add(new ArmorPieces("Left Bicep", 104, ArmorPieces.ArmorType.LeftForearm, "Basic Bicep", 0, 0));
-        armor.Add(new ArmorPieces("Right Forearm", 105, ArmorPieces.ArmorType.RightForearm, "Basic Forearm", 0, 0));
-        armor.Add(new ArmorPieces("Left Forearm", 106, ArmorPieces.ArmorType.LeftForearm, "Basic Forearm", 0, 0));
-        armor.Add(new ArmorPieces("Right Calf", 107, ArmorPieces.ArmorType.RightCalf, "Basic Calf", 0, 0));
-        armor.Add(new ArmorPieces("Left Calf", 108, ArmorPieces.ArmorType.LeftCalf, "Basic Calf", 0, 0));
-        armor.Add(new ArmorPieces("Right Thigh", 109, ArmorPieces.ArmorType.RightThigh, "Basic Thigh", 0, 0));
-        armor.Add(new ArmorPieces("Left Thigh", 110, ArmorPieces.ArmorType.LeftThigh, "Basic Thigh", 0, 0));
-        armor.Add(new ArmorPieces("Skirt", 111, ArmorPieces.ArmorType.SkirtPiece, "Basic Thigh", 0, 0));
-        armor.Add(new ArmorPieces("Right Foot", 112, ArmorPieces.ArmorType.RightFoot, "Basic Foot", 0, 0));
-        armor.Add(new ArmorPieces("Left Foot", 113, ArmorPieces.ArmorType.LeftFoot, "Basic Foot", 0, 0)); 
+        armor.Add(new ArmorPieces("Basic Head", 101, ArmorPieces.ArmorType.Helmet, "Basic Helmet", 0, 0));
+        armor.Add(new ArmorPieces("Basic Torso", 102, ArmorPieces.ArmorType.Torso, "Basic Torso", 0f, 0f));
+        armor.Add(new ArmorPieces("Basic Right Bicep", 103, ArmorPieces.ArmorType.RightBicep, "Basic Bicep", 0, 0));
+        armor.Add(new ArmorPieces("Basic Left Bicep", 104, ArmorPieces.ArmorType.LeftForearm, "Basic Bicep", 0, 0));
+        armor.Add(new ArmorPieces("Basic Right Forearm", 105, ArmorPieces.ArmorType.RightForearm, "Basic Forearm", 0, 0));
+        armor.Add(new ArmorPieces("Basic Left Forearm", 106, ArmorPieces.ArmorType.LeftForearm, "Basic Forearm", 0, 0));
+        armor.Add(new ArmorPieces("Basic Right Calf", 107, ArmorPieces.ArmorType.RightCalf, "Basic Calf", 0, 0));
+        armor.Add(new ArmorPieces("Basic Left Calf", 108, ArmorPieces.ArmorType.LeftCalf, "Basic Calf", 0, 0));
+        armor.Add(new ArmorPieces("Basic Right Thigh", 109, ArmorPieces.ArmorType.RightThigh, "Basic Thigh", 0, 0));
+        armor.Add(new ArmorPieces("Basic Left Thigh", 110, ArmorPieces.ArmorType.LeftThigh, "Basic Thigh", 0, 0));
+        armor.Add(new ArmorPieces("Basic Skirt", 111, ArmorPieces.ArmorType.SkirtPiece, "Basic Thigh", 0, 0));
+        armor.Add(new ArmorPieces("Basic Right Foot", 112, ArmorPieces.ArmorType.RightFoot, "Basic Foot", 0, 0));
+        armor.Add(new ArmorPieces("Basic Left Foot", 113, ArmorPieces.ArmorType.LeftFoot, "Basic Foot", 0, 0)); 
         
         // Vindicator
         armor.Add(new ArmorPieces("Vindicator Head", 201, ArmorPieces.ArmorType.Helmet, "Vindicator Helmet", 0, 0));
         armor.Add(new ArmorPieces("Vindicator Torso", 202, ArmorPieces.ArmorType.Torso, "Vindicator Torso", 0, 0));
         armor.Add(new ArmorPieces("Vindicator Right Bicep", 203, ArmorPieces.ArmorType.RightBicep, "Vindicator Right Bicep", 0, 0)); 
-        armor.Add(new ArmorPieces("Vindicator Left Bicep", 204, ArmorPieces.ArmorType.LeftBicep,"Vindicator Left Bicep", 0, 0,)); 
+        armor.Add(new ArmorPieces("Vindicator Left Bicep", 204, ArmorPieces.ArmorType.LeftBicep,"Vindicator Left Bicep", 0, 0)); 
         armor.Add(new ArmorPieces("Vindicator Right Forearm", 205, ArmorPieces.ArmorType.RightForearm,"Vindicator Right Forearm", 0, 0)); 
         armor.Add(new ArmorPieces("Vindicator Left Forearm", 206, ArmorPieces.ArmorType.LeftForearm,"Vindicator Left Forearm", 0, 0)); 
         armor.Add(new ArmorPieces("Vindicator Right Calf", 207, ArmorPieces.ArmorType.RightCalf, "Vindicator Right Calf", 0, 0));
