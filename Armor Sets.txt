@@ -1,0 +1,31 @@
+
+Basic Armot Set
+-Basic Head
+-Basic Torso
+-Basic Right Bicep
+-Basic Left Bicep
+-Basic Right Forearm
+-Basic Left Forearm
+-Basic Right Calf
+-Basic Left Calf
+-Basic Right Thigh
+-Basic Left Thigh
+-Basic Skirt
+-Basic Right Foot
+-Basic Left Foot
+
+
+Vindicator Armor Set
+-Vindicator Head
+-Vindicator Torso
+-Vindicator Right Bicep
+-Vindicator Left Bicep
+-Vindicator Right Forearm
+-Vindicator Left Forearm
+-Vindicator Right Calf
+-Vindicator Left Calf
+-Vindicator Right Thigh
+-Vindicator Left Thigh
+-Vindicator Skirt
+-Vindicator Right Foot
+-Vindicator Left Foot
